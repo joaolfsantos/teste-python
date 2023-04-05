@@ -42,6 +42,26 @@ a última versão publicada no [PyPI](https://pypi.org/).
 
 Abaixo, alguns exemplos de chamadas que serão feitas nessa API:
 
+### Listagem de Projetos (LIST)
+```
+GET /api/projects
+[
+ {
+    "name": "titan",
+    "packages": [
+        {"name": "graphene", "version": "1900"}
+    ]
+ },
+ {
+    "name": "godzilla",
+    "packages": [
+        {"name": "pandas", "version": "1.2"}
+    ]
+ }
+]
+```
+
+### Cadastro de Projeto (CREATE)
 ```
 POST /api/projects
 {
@@ -64,9 +84,9 @@ O código HTTP de retorno deve ser 201 e o corpo esperado na resposta é:
 ```
 
 Se um dos pacotes informados não existir, ou uma das versões especificadas for
-inválida, um erro deve ser retornado.
+inválida, um erro deve ser retornado, explicando o que houve.
 
-Para uma chamada semelhante ao exemplo abaixo:
+Ex.: Para uma chamada semelhante ao exemplo abaixo:
 ```
 POST /api/projects
 {
@@ -80,10 +100,11 @@ POST /api/projects
 O código HTTP de retorno deve ser 400 e o corpo esperado na resposta é:
 ```
 {
-    "error": "One or more packages doesn't exist"
+    "error": "O pacote 'pypypypypypypypypypypy' não existe"
 }
 ```
 
+### Detalhes de um Projeto (RETRIEVE)
 Também deve ser possível visitar projetos previamente cadastrados, usando o
 nome na URL:
 ```
@@ -97,10 +118,14 @@ GET /api/projects/titan
 }
 ```
 
+### Remoção de um Projeto (DELETE)
 E deletar projetos pelo nome:
 ```
 DELETE /api/projects/titan
 ```
+O código HTTP de retorno deve ser 204, sem conteúdo.
+
+<br/>
 
 | ⚠️ | Sua solução deve usar a [API pública do PyPI](https://warehouse.readthedocs.io/api-reference/json.html). Não use outro caminho pra buscar as informações necessárias |
 | --- | --- |
@@ -114,8 +139,9 @@ Se você nunca mexeu com nenhuma dessas opções, a recomendação é usar o Fas
 Para implementar sua solução, você precisará:
 
 1. Fazer um **Fork** deste repositório.
-2. Clonar e implementar sua solução neste repositório.
-3. Publicar o código da solução no github.
-4. Enviar para o time da Neocredit o link da solução publicada para que seja avaliada.
+2. Clonar o repositório criado na etapa anterior para sua máquina.
+3. Criar uma nova branch e implementar a sua solução dentro dela.
+3. Subir as alterações.
+4. Abrir um PR **desta branch para a main** e enviar para o time da Neocredit o **link do PR** para que a sua solução seja avaliada.
 
 **Boa sorte!**
