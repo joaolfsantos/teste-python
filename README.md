@@ -131,10 +131,12 @@ O código HTTP de retorno deve ser 204, sem conteúdo.
 | --- | --- |
 
 
-## Solução
+## Etapas
 
 Você pode usar seu framework web favorito desde que sua solução use Python (FastAPI, Flask, Django...). 
 Se você nunca mexeu com nenhuma dessas opções, a recomendação é usar o FastAPI.
+
+Gostaríamos também de verificar suas habilidades com banco de dados, então sua solução deve utilizar SQLite para armazenamento de dados, você pode utilizar seu ORM favorito para comunicação.
 
 Para implementar sua solução, você precisará:
 
